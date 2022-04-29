@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PageTitle from "../Hooks/PageTitle";
 import "./Register.css";
 const Register = () => {
   return (
     <div className="login-container">
+      <PageTitle title="Register"></PageTitle>
       <form action="">
         <div>
           <label htmlFor="name">Name</label>

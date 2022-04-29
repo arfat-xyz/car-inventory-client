@@ -1,7 +1,12 @@
 import React from "react";
+import PageTitle from "../Hooks/PageTitle";
 import "./Blogs.css";
 const Blogs = () => {
-  return <div>This is blog page</div>;
+  return (
+    <div>
+      <PageTitle title="Blogs"></PageTitle>This is blog page
+    </div>
+  );
 };
 
 export default Blogs;

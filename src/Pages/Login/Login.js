@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PageTitle from "../Hooks/PageTitle";
 import "./Login.css";
 const Login = () => {
   return (
     <div className="login-container">
+      <PageTitle title="Login"></PageTitle>
       <form action="">
         <div>
           <label htmlFor="email">Email</label>
