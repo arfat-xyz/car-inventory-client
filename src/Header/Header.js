@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { MdMenu, MdClose } from "react-icons/md";
+import { useAuthState } from "react-firebase-hooks/auth";
 import "./Header.css";
+import auth from "../firebase.init";
+import { signOut } from "firebase/auth";
 const Header = () => {
+  const [user, loading, error] = useAuthState(auth);
   const [toggle, setToggle] = useState(false);
-
   return (
     <div className="header-container">
       <div className="header">
@@ -57,13 +60,30 @@ const Header = () => {
               >
                 Blogs
               </NavLink>
-              <NavLink
-                onClick={() => setToggle(!toggle)}
-                className={({ isActive }) => (isActive ? "lactive-class" : "")}
-                to="/login"
-              >
-                Login
-              </NavLink>
+              {user ? (
+                <NavLink
+                  onClick={() => {
+                    setToggle(!toggle);
+                    signOut(auth);
+                  }}
+                  className={({ isActive }) =>
+                    isActive ? "lactive-class" : ""
+                  }
+                  to="/"
+                >
+                  Logout
+                </NavLink>
+              ) : (
+                <NavLink
+                  onClick={() => setToggle(!toggle)}
+                  className={({ isActive }) =>
+                    isActive ? "lactive-class" : ""
+                  }
+                  to="/login"
+                >
+                  Login
+                </NavLink>
+              )}
             </div>
           </nav>
         </div>
