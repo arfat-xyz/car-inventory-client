@@ -1,28 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PageTitle from "../Hooks/PageTitle";
-import { GrClose } from "react-icons/gr";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 import "./MyItem.css";
+import axios from "axios";
+import { async } from "@firebase/util";
+import SingleItem from "./SingleItem";
 const MyItem = () => {
+  const [user, loading, error] = useAuthState(auth);
+
+  const email = user?.email;
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const run = async () => {
+      await axios
+        .get(`http://localhost:5000/myItem/${email}`)
+        .then(function (res) {
+          setProducts(res.data);
+        });
+    };
+    run();
+  }, [email]);
+  if (loading) {
+    return <h1>please wait</h1>;
+  }
   return (
     <div className="all-products-container">
       <PageTitle title="My Item"></PageTitle>
-      <div className="product-container">
-        <div className="product-details">
-          <strong>Name : </strong> "Tesla Model Y" <br />{" "}
-          <strong>Image-link : </strong> :
-          "https://i.ibb.co/HtNT49d/tesla-model-y.jpg"
-          <br />
-          <strong>Description</strong> "description": "Model Y provides maximum
-          versatility—able to carry 7 passengers and "
-          <br />
-          <strong>Price : </strong> "price" : 420000,
-          <br /> <strong>Quantity</strong>: 11, <br />
-          <strong>Suplier : </strong>: "Arfatur Rahman"
-        </div>
-        <div className="product-delete">
-          <GrClose></GrClose>
-        </div>
-      </div>
+      {products.map((product) => (
+        <SingleItem key={product._id} product={product} />
+      ))}
     </div>
   );
 };
