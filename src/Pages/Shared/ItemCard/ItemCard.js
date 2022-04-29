@@ -17,7 +17,7 @@ const ItemCard = ({ product, dlt, up, handleDelete }) => {
           <strong>Price : </strong>${product.price}
         </p>
         <p className="card-quantity">
-          <strong>Quantity</strong> {product.quantity}
+          <strong>Quantity : </strong> {product.quantity}
         </p>
         <p className="card-supplier">
           <strong>Supplier Name : </strong> {product.suplier}

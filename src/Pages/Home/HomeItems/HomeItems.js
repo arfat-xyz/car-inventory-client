@@ -4,6 +4,8 @@ import ItemCard from "../../Shared/ItemCard/ItemCard";
 import "./HomeItems.css";
 const HomeItems = () => {
   const [products, setProducts] = useState([]);
+  console.log(products);
+  //
   useEffect(() => {
     axios
       .get("https://boiling-oasis-56401.herokuapp.com/products")

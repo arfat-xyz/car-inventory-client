@@ -1,6 +1,46 @@
 .inventory-container {
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.inventory-container .card-container {
+.inventory-container > div {
   width: 400px;
+}
+.update-quantity {
+  margin-bottom: 40px;
+}
+.form-add-quantity input[type="submit"],
+.deliver-btn {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 10px 50px;
+  border: none;
+  background-color: orangered;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form-add-quantity input[type="submit"]:hover,
+.deliver-btn:hover {
+  border: none;
+  background-color: #ff8051;
+  color: #000;
+}
+
+.form-add-quantity {
+  border: 1px solid gray;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.form-add-quantity input {
+  width: 100%;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 20px 0;
+  font-size: 20px;
 }
