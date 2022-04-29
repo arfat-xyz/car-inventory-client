@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ItemCard.css";
-const ItemCard = ({ product, dlt }) => {
+const ItemCard = ({ product, dlt, up, handleDelete }) => {
   return (
     <div className="card-container">
       <div className="card-img">
@@ -22,17 +22,16 @@ const ItemCard = ({ product, dlt }) => {
         <p className="card-supplier">
           <strong>Supplier Name : </strong> {product.suplier}
         </p>
-        <p className="card-update-btn">
-          <Link to={`/inventory/${product._id}`}>Update</Link>
-        </p>
+        {up ? (
+          ""
+        ) : (
+          <p className="card-update-btn">
+            <Link to={`/inventory/${product._id}`}>Update</Link>
+          </p>
+        )}
         {dlt && (
           <p className="card-update-btn">
-            <Link
-              to=""
-              onClick={() => {
-                console.log("you clicked");
-              }}
-            >
+            <Link to="" onClick={() => handleDelete(product._id)}>
               Delete
             </Link>
           </p>

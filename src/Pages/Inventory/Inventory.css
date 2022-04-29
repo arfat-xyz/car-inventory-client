@@ -1,0 +1,6 @@
+.inventory-container {
+  margin: 0 auto;
+}
+.inventory-container .card-container {
+  width: 400px;
+}
