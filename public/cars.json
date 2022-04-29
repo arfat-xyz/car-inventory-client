@@ -1,6 +1,6 @@
 [
     {
-    "_id": 1,
+    
     "name": "Tesla Model 3",
     "img" : "https://i.ibb.co/NjWbNKq/tesla-model3.jpg",
     "description": "Standard Range RWD : 3,552 lb (1,611 kg) Standard Range plus RWD : 3,627 lb (1,645 kg) Mid Range RWD: 3,686 lb (1,672 kg) Long Range RWD: 3,814 lb (1,730 kg) Long-Range Dual-Motor AWD (including Performance): 4,072 lb (1,847 kg)",
@@ -9,7 +9,7 @@
     "suplier": "Arfatur Rahman"
     
     },{
-    "_id": 2,
+    
     "name": "Tesla Model Y",
     "img" : "https://i.ibb.co/HtNT49d/tesla-model-y.jpg",
     "description": "Model Y provides maximum versatility—able to carry 7 passengers and their cargo. Each second row seat folds flat independently, creating flexible storage for skis, furniture, luggage and more. The liftgate opens to a low trunk floor that makes loading and unloading easy and quick.",
@@ -18,7 +18,7 @@
     "suplier": "Arfatur Rahman"
     
     },{
-    "_id": 3,
+    
     "name": "Tesla Model S",
     "img" : "https://i.ibb.co/dK2n6FV/tesla-model-s.jpg",
     "description": "Front and rear motor combined output up to 615 kW (825 bhp), 1,300 N⋅m (960 lb⋅ft), 3-phase AC induction motor",
@@ -27,7 +27,7 @@
     "suplier": "Arfatur Rahman"
     
     },{
-    "_id": 4,
+    
     "name": "Tesla Model X",
     "img" : "https://i.ibb.co/PZZDNf3/tesla-mode-x.jpg",
     "description": "With the most power and quickest acceleration of any SUV, Model X Plaid is the highest performing SUV ever built. All Model X powertrains, with updated battery architecture, can deliver instant torque at any speed.",
@@ -36,7 +36,7 @@
     "suplier": "Arfatur Rahman"
     
     },{
-    "_id": 5,
+    
     "name": "Rolls-Royce Ghost",
     "img" : "https://i.ibb.co/HXFjYds/Rolls-Royce-Ghost.jpg",
     "description": "The Rolls-Royce Ghost has 1 Petrol Engine on offer. The Petrol engine is 6750 cc . It is available with Automatic transmission.Depending upon the variant and fuel type the Ghost has a mileage of 6.33 kmpl . The Ghost is a 5 seater 12 cylinder car and has length of 5627mm, width of 1948mm and a wheelbase of 3465mm.",
@@ -45,7 +45,7 @@
     "suplier": "Arfatur Rahman"
     
     },{
-    "_id": 6,
+    
     "name": "Rolls-Royce Phantom",
     "img" : "https://i.ibb.co/g3MyRLM/Rolls-Royce-Phantom.jpg",
     "description": "The Rolls-Royce Phantom has 1 Petrol Engine on offer. The Petrol engine is 6749 cc . It is available with Automatic transmission.Depending upon the variant and fuel type the Phantom has a mileage of 9.8 kmpl & Ground clearance of Phantom is 164mm. The Phantom is a 5 seater 12 cylinder car and has length of 5982mm, width of 2018mm and a wheelbase",
@@ -54,7 +54,7 @@
     "suplier": "Arfatur Rahman"
     
     },{
-    "_id": 7,
+    
     "name": "Rolls-Royce Cullinan",
     "img" : "https://i.ibb.co/Jk8CwNJ/Rolls-Royce-Cullinan.jpg",
     "description": "The Rolls-Royce Cullinan has 1 Petrol Engine on offer. The Petrol engine is 6750 cc . It is available with Automatic transmission.Depending upon the variant and fuel type the Cullinan has a mileage of 9.5 kmpl . The Cullinan is a 5 seater 12 cylinder car and has length of 5341mm, width of 2000mm and a wheelbase of 3295 mm.",
