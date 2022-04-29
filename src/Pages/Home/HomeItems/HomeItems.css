@@ -1,0 +1,23 @@
+.section-header {
+  font-size: 40px;
+  margin: 40px;
+  text-align: center;
+}
+.items-container {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: start;
+}
+@media (max-width: 1022px) and (min-width: 767px) {
+  .items-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 766px) {
+  .items-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

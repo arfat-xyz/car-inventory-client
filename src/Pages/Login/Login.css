@@ -1,0 +1,33 @@
+.login-container {
+  width: 50%;
+  margin: 0 auto;
+}
+.login-container label + input {
+  width: 100%;
+  margin: 10px 0;
+}
+.login-container label {
+  font-size: 20px;
+  padding-left: 10px;
+}
+.login-container input {
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 15px;
+}
+.login-container input[type="submit"] {
+  width: 100%;
+  background-color: orangered;
+  margin: 30px 0;
+  color: #fff;
+  border-color: transparent;
+  transition: all 0.3s ease;
+}
+.login-container input[type="submit"]:hover {
+  background-color: #ff8051;
+  color: #000;
+}
+.login-container a {
+  text-decoration: none;
+  color: orangered;
+}
