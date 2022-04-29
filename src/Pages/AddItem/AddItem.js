@@ -1,12 +1,35 @@
+import axios from "axios";
 import React from "react";
 import PageTitle from "../Hooks/PageTitle";
 import "./AddItem.css";
 const AddItem = () => {
+  const handleAddItem = (e) => {
+    e.preventDefault();
+    const suplier = e.target.name.value;
+    const email = e.target.email.value;
+    const p_name = e.target.p_name.value;
+    const img = e.target.img.value;
+    const description = e.target.description.value;
+    const price = e.target.price.value;
+    const quantity = e.target.quantity.value;
+    const product = {
+      name: p_name,
+      email,
+      img,
+      description,
+      price,
+      quantity,
+      suplier,
+    };
+    axios.post("http://localhost:5000/additem", product).then(function (res) {
+      console.log(res);
+    });
+  };
   return (
     <div className="add-main-container">
       <PageTitle title="Add Item" />
       <div className="add-container">
-        <form action="">
+        <form action="" onSubmit={handleAddItem}>
           <div className="input-container">
             <label htmlFor="name">Name</label>
             <input
