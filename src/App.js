@@ -14,6 +14,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import NotFound from "./Pages/NotFound/NotFound";
 import Register from "./Pages/Register.js/Register";
+import RequireAuth from "./Pages/RequireAuth/RequireAuth";
 
 function App() {
   return (
@@ -23,10 +24,38 @@ function App() {
         <Route path="/" element={<Home></Home>} />
         <Route path="/home" element={<Home></Home>} />
         <Route path="/login" element={<Login />} />
-        <Route path="/inventory/:id" element={<Inventory />} />
-        <Route path="/manage" element={<ManageInventory />} />
-        <Route path="/add" element={<AddItem />} />
-        <Route path="/myitem" element={<MyItem />} />
+        <Route
+          path="/inventory/:id"
+          element={
+            <RequireAuth>
+              <Inventory />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/manage"
+          element={
+            <RequireAuth>
+              <ManageInventory />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/add"
+          element={
+            <RequireAuth>
+              <AddItem />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/myitem"
+          element={
+            <RequireAuth>
+              <MyItem />
+            </RequireAuth>
+          }
+        />
         <Route path="/blog" element={<Blogs />} />
         <Route path="/register" element={<Register />} />
         <Route path="/*" element={<NotFound />} />

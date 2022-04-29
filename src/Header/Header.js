@@ -6,7 +6,7 @@ import "./Header.css";
 import auth from "../firebase.init";
 import { signOut } from "firebase/auth";
 const Header = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const [toggle, setToggle] = useState(false);
   return (
     <div className="header-container">
@@ -32,27 +32,40 @@ const Header = () => {
               >
                 Home
               </NavLink>
-              <NavLink
-                onClick={() => setToggle(!toggle)}
-                className={({ isActive }) => (isActive ? "lactive-class" : "")}
-                to="/add"
-              >
-                Add Item
-              </NavLink>
-              <NavLink
-                onClick={() => setToggle(!toggle)}
-                className={({ isActive }) => (isActive ? "lactive-class" : "")}
-                to="/manage"
-              >
-                Manage
-              </NavLink>
-              <NavLink
-                onClick={() => setToggle(!toggle)}
-                className={({ isActive }) => (isActive ? "lactive-class" : "")}
-                to="/myitem"
-              >
-                My Item
-              </NavLink>
+              {user ? (
+                <>
+                  <NavLink
+                    onClick={() => setToggle(!toggle)}
+                    className={({ isActive }) =>
+                      isActive ? "lactive-class" : ""
+                    }
+                    to="/add"
+                  >
+                    Add Item
+                  </NavLink>
+                  <NavLink
+                    onClick={() => setToggle(!toggle)}
+                    className={({ isActive }) =>
+                      isActive ? "lactive-class" : ""
+                    }
+                    to="/manage"
+                  >
+                    Manage
+                  </NavLink>
+                  <NavLink
+                    onClick={() => setToggle(!toggle)}
+                    className={({ isActive }) =>
+                      isActive ? "lactive-class" : ""
+                    }
+                    to="/myitem"
+                  >
+                    My Item
+                  </NavLink>
+                </>
+              ) : (
+                ""
+              )}
+
               <NavLink
                 onClick={() => setToggle(!toggle)}
                 className={({ isActive }) => (isActive ? "lactive-class" : "")}

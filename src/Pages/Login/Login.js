@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import PageTitle from "../Hooks/PageTitle";
 import { SiFacebook } from "react-icons/si";
 import {
@@ -10,6 +10,8 @@ import "./Login.css";
 import auth from "../../firebase.init";
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const [createUserWithEmailAndPassword, emailUser, emailLoading, emailError] =
     useCreateUserWithEmailAndPassword(auth);
   const [signInWithFacebook, facebookUser, facebookLoading, facebookError] =
@@ -20,7 +22,7 @@ const Login = () => {
     const password = e.target.password.value;
     createUserWithEmailAndPassword(email, password);
   };
-  (emailUser || facebookUser) && navigate("/");
+  (emailUser || facebookUser) && navigate(from, { replace: true });
   return (
     <div className="main-container">
       <div className="login-container">
