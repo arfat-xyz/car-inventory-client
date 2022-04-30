@@ -72,13 +72,14 @@ const AddItem = () => {
           </div>
           <div className="input-container">
             <label htmlFor="description">Description</label>
-            <input
-              type="text"
+            <textarea
               name="description"
               id=""
+              cols="30"
+              rows="10"
               placeholder="Please enter product description"
               required
-            />
+            ></textarea>
           </div>
           <div className="input-container">
             <label htmlFor="price">Price</label>

@@ -5,8 +5,10 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import "./Header.css";
 import auth from "../firebase.init";
 import { signOut } from "firebase/auth";
+import Loading from "../Pages/Loading/Loading";
 const Header = () => {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
+
   const [toggle, setToggle] = useState(false);
   return (
     <div className="header-container">
@@ -79,9 +81,6 @@ const Header = () => {
                     setToggle(!toggle);
                     signOut(auth);
                   }}
-                  className={({ isActive }) =>
-                    isActive ? "lactive-class" : ""
-                  }
                   to="/"
                 >
                   Logout

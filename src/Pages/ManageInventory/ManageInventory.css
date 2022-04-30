@@ -1,0 +1,13 @@
+.add-item-btn {
+  border: none;
+  background-color: orangered;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 100px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+.add-item-btn:hover {
+  background-color: #ff8051;
+  color: #000;
+}

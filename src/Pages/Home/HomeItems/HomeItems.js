@@ -4,7 +4,6 @@ import ItemCard from "../../Shared/ItemCard/ItemCard";
 import "./HomeItems.css";
 const HomeItems = () => {
   const [products, setProducts] = useState([]);
-  console.log(products);
   //
   useEffect(() => {
     axios
@@ -13,7 +12,7 @@ const HomeItems = () => {
   }, []);
   return (
     <div>
-      <h1 className="section-header">First 6 Item</h1>
+      <h1 className="section-header">First {products.length} Item</h1>
       <div className="items-container">
         {products.map((product) => (
           <ItemCard key={product._id} product={product}></ItemCard>

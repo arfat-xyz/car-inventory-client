@@ -12,5 +12,7 @@
   border-radius: 10px;
 }
 .product-delete {
+  text-align: center;
+  min-width: 100px;
   font-size: 30px;
 }

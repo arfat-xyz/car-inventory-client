@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import PageTitle from "../Hooks/PageTitle";
 import ItemCard from "../Shared/ItemCard/ItemCard";
 import "./ManageInventory.css";
@@ -36,6 +37,11 @@ const ManageInventory = () => {
               product={product}
             ></ItemCard>
           ))}
+        </div>
+        <div style={{ textAlign: "Center", margin: "40px" }}>
+          <Link className="add-item-btn" to="">
+            Add Item
+          </Link>
         </div>
       </section>
     </div>

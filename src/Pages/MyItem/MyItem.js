@@ -6,8 +6,9 @@ import "./MyItem.css";
 import axios from "axios";
 import { async } from "@firebase/util";
 import SingleItem from "./SingleItem";
+import Loading from "../Loading/Loading";
 const MyItem = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   const email = user?.email;
   const [products, setProducts] = useState([]);
@@ -21,9 +22,6 @@ const MyItem = () => {
     };
     run();
   }, [email]);
-  if (loading) {
-    return <h1>please wait</h1>;
-  }
   return (
     <div className="all-products-container">
       <PageTitle title="My Item"></PageTitle>
