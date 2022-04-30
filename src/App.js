@@ -15,10 +15,12 @@ import "slick-carousel/slick/slick-theme.css";
 import NotFound from "./Pages/NotFound/NotFound";
 import Register from "./Pages/Register.js/Register";
 import RequireAuth from "./Pages/RequireAuth/RequireAuth";
-
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <>
+      <ToastContainer />
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>} />

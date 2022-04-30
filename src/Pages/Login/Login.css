@@ -28,6 +28,7 @@
   border-radius: 15px;
   text-align: center;
   font-size: 20px;
+  cursor: pointer;
 }
 .login-container input[type="submit"]:hover,
 .social-btn:hover {

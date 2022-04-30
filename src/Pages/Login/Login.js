@@ -1,28 +1,26 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import PageTitle from "../Hooks/PageTitle";
-import { SiFacebook } from "react-icons/si";
-import {
-  useCreateUserWithEmailAndPassword,
-  useSignInWithFacebook,
-} from "react-firebase-hooks/auth";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import "./Login.css";
 import auth from "../../firebase.init";
+import SocialLogin from "./SocialLogin";
+import { toast } from "react-toastify";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  const [createUserWithEmailAndPassword, emailUser, emailLoading, emailError] =
-    useCreateUserWithEmailAndPassword(auth);
-  const [signInWithFacebook, facebookUser, facebookLoading, facebookError] =
-    useSignInWithFacebook(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    createUserWithEmailAndPassword(email, password);
+    signInWithEmailAndPassword(email, password);
   };
-  (emailUser || facebookUser) && navigate(from, { replace: true });
+  user && navigate(from, { replace: true });
+  error && toast.error(error.message);
   return (
     <div className="main-container">
       <div className="login-container">
@@ -54,18 +52,7 @@ const Login = () => {
           <input type="submit" value="Login" />
         </form>
       </div>
-      <div className="or">
-        <div></div>
-        OR
-        <div></div>
-      </div>
-      <div className="social-logins">
-        <p>{facebookError && `${facebookError}`}</p>
-        <div className="social-btn" onClick={() => signInWithFacebook()}>
-          <SiFacebook />
-          <span>Facebook</span>
-        </div>
-      </div>
+      <SocialLogin></SocialLogin>
     </div>
   );
 };
