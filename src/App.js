@@ -20,7 +20,7 @@ import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <>
-      <ToastContainer />
+      <ToastContainer pauseOnHover />
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>} />
