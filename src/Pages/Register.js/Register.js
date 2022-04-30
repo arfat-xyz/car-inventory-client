@@ -12,7 +12,7 @@ import { async } from "@firebase/util";
 const Register = () => {
   const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile] = useUpdateProfile(auth);
   const handleRegister = async (e) => {
     e.preventDefault();

@@ -11,7 +11,7 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
+    useSignInWithEmailAndPassword(auth,);
 
   const handleSubmit = (e) => {
     e.preventDefault();
