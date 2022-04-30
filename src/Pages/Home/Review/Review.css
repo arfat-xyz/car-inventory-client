@@ -1,0 +1,31 @@
+.reviews {
+  display: grid;
+  width: 90%;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  gap: 30px;
+}
+.review {
+  padding: 30px;
+  box-shadow: 0px 0px 5px 5px #0000001a;
+  border-radius: 10px;
+}
+.car-img {
+  width: 100%;
+}
+.reviewer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.reviewer img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 20px;
+}
+@media (max-width: 766px) {
+  .reviews {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

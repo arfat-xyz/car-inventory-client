@@ -1,0 +1,33 @@
+.carchemistry {
+  width: 70%;
+  margin: 40px auto;
+}
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 70px;
+  margin: 70px 30px;
+}
+.service {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-shadow: 1px -1px 3px 2px #00000038;
+  border-radius: 10px;
+  padding: 10px;
+}
+.service-logo {
+  font-size: 50px;
+  color: orangered;
+  margin-right: 30px;
+}
+@media (max-width: 766px) {
+  .carchemistry {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .services {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+  }
+}
