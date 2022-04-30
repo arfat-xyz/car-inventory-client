@@ -9,7 +9,7 @@ const Inventory = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   useEffect(() => {
-    const url = `http://localhost:5000/inventory/${id}`;
+    const url = `https://boiling-oasis-56401.herokuapp.com/inventory/${id}`;
     axios.get(url).then((response) => {
       setProduct(response.data);
     });
@@ -20,7 +20,10 @@ const Inventory = () => {
     const newProduct = product;
     newProduct.quantity = product.quantity - 1;
     if (newProduct.quantity >= 0) {
-      axios.put(`http://localhost:5000/delivered/${id}`, newProduct);
+      axios.put(
+        `https://boiling-oasis-56401.herokuapp.com/delivered/${id}`,
+        newProduct
+      );
     } else {
       window.alert("You're out of ammount");
     }
@@ -33,7 +36,10 @@ const Inventory = () => {
     const newProduct = product;
     newProduct.quantity = product.quantity + quantity;
     axios
-      .put(`http://localhost:5000/delivered/${id}`, newProduct)
+      .put(
+        `https://boiling-oasis-56401.herokuapp.com/delivered/${id}`,
+        newProduct
+      )
       .then((res) => console.log(res.data));
   };
   return (

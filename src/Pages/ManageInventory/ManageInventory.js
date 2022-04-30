@@ -15,12 +15,14 @@ const ManageInventory = () => {
   const handleDelete = async (id) => {
     const proceed = window.confirm("Are you Sure You want to delete this");
     if (proceed) {
-      await axios.delete(`http://localhost:5000/product/${id}`).then((res) => {
-        if (res.data.deletedCount > 0) {
-          const remaining = products.filter((product) => product._id != id);
-          setProducts(remaining);
-        }
-      });
+      await axios
+        .delete(`https://boiling-oasis-56401.herokuapp.com/product/${id}`)
+        .then((res) => {
+          if (res.data.deletedCount > 0) {
+            const remaining = products.filter((product) => product._id != id);
+            setProducts(remaining);
+          }
+        });
     }
   };
   return (
@@ -39,7 +41,7 @@ const ManageInventory = () => {
           ))}
         </div>
         <div style={{ textAlign: "Center", margin: "40px" }}>
-          <Link className="add-item-btn" to="">
+          <Link className="add-item-btn" to="/add">
             Add Item
           </Link>
         </div>

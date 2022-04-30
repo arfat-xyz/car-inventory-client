@@ -27,11 +27,13 @@ const AddItem = () => {
       quantity,
       suplier,
     };
-    axios.post("http://localhost:5000/additem", product).then(function (res) {
-      if (res?.data?.insertedId) {
-        navigate("/myitem");
-      }
-    });
+    axios
+      .post("https://boiling-oasis-56401.herokuapp.com/additem", product)
+      .then(function (res) {
+        if (res?.data?.insertedId) {
+          navigate("/myitem");
+        }
+      });
   };
   return (
     <div className="add-main-container">
