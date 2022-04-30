@@ -1,0 +1,12 @@
+.accordion-container {
+  width: 70%;
+  margin: 40px auto;
+}
+.answer {
+  margin-left: 20px;
+}
+@media (max-width: 766px) {
+  .accordion-container {
+    width: 90%;
+  }
+}

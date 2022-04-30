@@ -1,10 +1,14 @@
 import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
 import PageTitle from "../Hooks/PageTitle";
+import { useAuthState } from "react-firebase-hooks/auth";
+import Loading from "../Loading/Loading";
 import "./AddItem.css";
 const AddItem = () => {
   const navigate = useNavigate();
+  const [user] = useAuthState(auth);
   const handleAddItem = (e) => {
     e.preventDefault();
     const suplier = e.target.name.value;
@@ -40,8 +44,10 @@ const AddItem = () => {
               type="text"
               name="name"
               id=""
-              placeholder="Please enter your name"
+              value={user.displayName}
               required
+              readOnly
+              disabled
             />
           </div>
           <div className="input-container">
@@ -49,11 +55,14 @@ const AddItem = () => {
             <input
               type="email"
               name="email"
+              value={user.email}
               id=""
               placeholder="Please enter your email"
               required
+              readOnly
+              disabled
             />
-          </div>{" "}
+          </div>
           <div className="input-container">
             <label htmlFor="p_name">Product Name</label>
             <input
