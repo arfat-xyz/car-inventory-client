@@ -2,7 +2,7 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 import { GrClose } from "react-icons/gr";
-const SingleItem = ({ product }) => {
+const SingleItem = ({ product, handleDelete }) => {
   return (
     <div className="product-container">
       <div className="product-details">
@@ -17,7 +17,7 @@ const SingleItem = ({ product }) => {
         <br /> <strong>Quantity</strong>: {product.quantity} <br />
         <strong>Suplier : </strong>: {product.suplier}
       </div>
-      <div className="product-delete">
+      <div onClick={() => handleDelete(product._id)} className="product-delete">
         <GrClose></GrClose>
       </div>
     </div>

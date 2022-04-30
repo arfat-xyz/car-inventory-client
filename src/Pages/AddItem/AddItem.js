@@ -1,8 +1,10 @@
 import axios from "axios";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import PageTitle from "../Hooks/PageTitle";
 import "./AddItem.css";
 const AddItem = () => {
+  const navigate = useNavigate();
   const handleAddItem = (e) => {
     e.preventDefault();
     const suplier = e.target.name.value;
@@ -22,7 +24,9 @@ const AddItem = () => {
       suplier,
     };
     axios.post("http://localhost:5000/additem", product).then(function (res) {
-      console.log(res);
+      if (res?.data?.insertedId) {
+        navigate("/myitem");
+      }
     });
   };
   return (

@@ -22,11 +22,27 @@ const MyItem = () => {
     };
     run();
   }, [email]);
+  const handleDelete = async (id) => {
+    console.log(id);
+    const proceed = window.confirm("Are you Sure You want to delete this", id);
+    if (proceed) {
+      await axios.delete(`http://localhost:5000/product/${id}`).then((res) => {
+        if (res.data.deletedCount > 0) {
+          const remaining = products.filter((product) => product._id != id);
+          setProducts(remaining);
+        }
+      });
+    }
+  };
   return (
     <div className="all-products-container">
       <PageTitle title="My Item"></PageTitle>
       {products.map((product) => (
-        <SingleItem key={product._id} product={product} />
+        <SingleItem
+          key={product._id}
+          handleDelete={handleDelete}
+          product={product}
+        />
       ))}
     </div>
   );
