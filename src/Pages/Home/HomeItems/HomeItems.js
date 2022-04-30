@@ -1,15 +1,19 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
 import Loading from "../../Loading/Loading";
 import ItemCard from "../../Shared/ItemCard/ItemCard";
 import "./HomeItems.css";
 const HomeItems = () => {
   const [products, setProducts] = useState([]);
+  const [user, loading] = useAuthState(auth);
 
+  const email = user?.email;
   //
   useEffect(() => {
     axios
-      .get("https://boiling-oasis-56401.herokuapp.com/products")
+      .get("https://boiling-oasis-56401.herokuapp.com/allproducts")
       .then((res) => setProducts(res.data.slice(0, 6)));
   }, []);
 
