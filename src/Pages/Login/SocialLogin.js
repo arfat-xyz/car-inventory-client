@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import { SiFacebook } from "react-icons/si";
 import { toast } from "react-toastify";
+import useToken from "../Hooks/useToken";
 
 const SocialLogin = () => {
   const navigate = useNavigate();
@@ -12,7 +13,8 @@ const SocialLogin = () => {
   const [signInWithFacebook, facebookUser, facebookLoading, facebookError] =
     useSignInWithFacebook(auth);
   facebookError && toast.error(facebookError.message);
-  facebookUser && navigate(from, { replace: true });
+  const [token] = useToken(facebookUser);
+  token && navigate(from, { replace: true });
   return (
     <div>
       <div className="or">

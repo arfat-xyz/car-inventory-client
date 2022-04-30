@@ -10,6 +10,8 @@ import auth from "../../firebase.init";
 import SocialLogin from "./SocialLogin";
 import { toast } from "react-toastify";
 import { async } from "@firebase/util";
+import axios from "axios";
+import useToken from "../Hooks/useToken";
 const Login = () => {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
@@ -19,11 +21,18 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, resetError] =
     useSendPasswordResetEmail(auth);
-  const handleSubmit = (e) => {
+  const [token] = useToken(user);
+  // handling Login using email and pass
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setEmail(e.target.email.value);
     const password = e.target.password.value;
     signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post(
+      "https://boiling-oasis-56401.herokuapp.com/login",
+      { email }
+    );
+    localStorage.setItem("access-token", data.token);
   };
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -38,7 +47,7 @@ const Login = () => {
     }
   };
   sending && toast.info("please check your email");
-  user && navigate(from, { replace: true });
+  token && navigate(from, { replace: true });
   signInError &&
     toast.error(signInError.message, {
       pauseOnHover: true,

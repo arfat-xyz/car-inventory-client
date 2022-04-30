@@ -1,14 +1,26 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
 import PageTitle from "../Hooks/PageTitle";
 import ItemCard from "../Shared/ItemCard/ItemCard";
 import "./ManageInventory.css";
 const ManageInventory = () => {
+  const [user, loading] = useAuthState(auth);
+
+  const email = user?.email;
   const [products, setProducts] = useState([]);
   useEffect(() => {
     axios
-      .get("https://boiling-oasis-56401.herokuapp.com/products")
+      .get(
+        `https://boiling-oasis-56401.herokuapp.com/products?email=${email}`,
+        {
+          headers: {
+            auth: `bearer ${localStorage.getItem("accesstoken")}`,
+          },
+        }
+      )
       .then((res) => setProducts(res.data));
   }, []);
   const dlt = true;

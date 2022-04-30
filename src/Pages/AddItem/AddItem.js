@@ -9,7 +9,8 @@ import "./AddItem.css";
 const AddItem = () => {
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
-  const handleAddItem = (e) => {
+
+  const handleAddItem = async (e) => {
     e.preventDefault();
     const suplier = e.target.name.value;
     const email = e.target.email.value;
@@ -27,7 +28,7 @@ const AddItem = () => {
       quantity,
       suplier,
     };
-    axios
+    await axios
       .post("https://boiling-oasis-56401.herokuapp.com/additem", product)
       .then(function (res) {
         if (res?.data?.insertedId) {

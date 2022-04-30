@@ -13,9 +13,17 @@ const MyItem = () => {
   const email = user?.email;
   const [products, setProducts] = useState([]);
   useEffect(() => {
+    // /${email}
     const run = async () => {
       await axios
-        .get(`https://boiling-oasis-56401.herokuapp.com/myItem/${email}`)
+        .get(
+          `https://boiling-oasis-56401.herokuapp.com/myItem?email=${email}`,
+          {
+            headers: {
+              auth: `bearer ${localStorage.getItem("accesstoken")}`,
+            },
+          }
+        )
         .then(function (res) {
           setProducts(res.data);
         });
@@ -23,7 +31,6 @@ const MyItem = () => {
     run();
   }, [email]);
   const handleDelete = async (id) => {
-    console.log(id);
     const proceed = window.confirm("Are you Sure You want to delete this", id);
     if (proceed) {
       await axios

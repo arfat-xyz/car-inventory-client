@@ -9,6 +9,7 @@ import {
 import "./Register.css";
 import auth from "../../firebase.init";
 import { async } from "@firebase/util";
+import useToken from "../Hooks/useToken";
 const Register = () => {
   const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user, loading, error] =
@@ -22,7 +23,8 @@ const Register = () => {
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
   };
-  user && navigate("/");
+  const [token] = useToken(user);
+  token && navigate("/");
   // console.log(error?.message);
   return (
     <div className="register-container">
