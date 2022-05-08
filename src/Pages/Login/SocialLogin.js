@@ -3,7 +3,7 @@ import { useSignInWithFacebook } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import { SiFacebook } from "react-icons/si";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import useToken from "../Hooks/useToken";
 
 const SocialLogin = () => {
