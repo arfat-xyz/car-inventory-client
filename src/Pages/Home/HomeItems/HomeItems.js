@@ -13,7 +13,7 @@ const HomeItems = () => {
   //
   useEffect(() => {
     axios
-      .get("https://boiling-oasis-56401.herokuapp.com/allproducts")
+      .get("https://car-inventory-server.onrender.com/allproducts")
       .then((res) => setProducts(res.data.slice(0, 6)));
   }, []);
 

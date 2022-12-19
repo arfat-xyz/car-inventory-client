@@ -9,7 +9,7 @@ const Inventory = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   useEffect(() => {
-    const url = `https://boiling-oasis-56401.herokuapp.com/inventory/${id}`;
+    const url = `https://car-inventory-server.onrender.com/inventory/${id}`;
     axios.get(url).then((response) => {
       setProduct(response.data);
     });
@@ -21,7 +21,7 @@ const Inventory = () => {
     newProduct.quantity = product.quantity - 1;
     if (newProduct.quantity >= 0) {
       axios.put(
-        `https://boiling-oasis-56401.herokuapp.com/delivered/${id}`,
+        `https://car-inventory-server.onrender.com/delivered/${id}`,
         newProduct
       );
     } else {
@@ -37,7 +37,7 @@ const Inventory = () => {
     newProduct.quantity = product.quantity + quantity;
     axios
       .put(
-        `https://boiling-oasis-56401.herokuapp.com/delivered/${id}`,
+        `https://car-inventory-server.onrender.com/delivered/${id}`,
         newProduct
       )
       .then((res) => console.log(res.data));

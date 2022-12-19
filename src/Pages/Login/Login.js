@@ -29,7 +29,7 @@ const Login = () => {
     const password = e.target.password.value;
     signInWithEmailAndPassword(email, password);
     const { data } = await axios.post(
-      "https://boiling-oasis-56401.herokuapp.com/login",
+      "https://car-inventory-server.onrender.com/login",
       { email }
     );
     localStorage.setItem("access-token", data.token);

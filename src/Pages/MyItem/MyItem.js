@@ -17,7 +17,7 @@ const MyItem = () => {
     const run = async () => {
       await axios
         .get(
-          `https://boiling-oasis-56401.herokuapp.com/myItem?email=${email}`,
+          `https://car-inventory-server.onrender.com/myItem?email=${email}`,
           {
             headers: {
               auth: `bearer ${localStorage.getItem("accesstoken")}`,
@@ -34,7 +34,7 @@ const MyItem = () => {
     const proceed = window.confirm("Are you Sure You want to delete this", id);
     if (proceed) {
       await axios
-        .delete(`https://boiling-oasis-56401.herokuapp.com/product/${id}`)
+        .delete(`https://car-inventory-server.onrender.com/product/${id}`)
         .then((res) => {
           if (res.data.deletedCount > 0) {
             const remaining = products.filter((product) => product._id != id);

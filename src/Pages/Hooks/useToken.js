@@ -10,7 +10,7 @@ const useToken = (user) => {
 
       if (email) {
         const { data } = await axios.post(
-          "https://boiling-oasis-56401.herokuapp.com/login",
+          "https://car-inventory-server.onrender.com/login",
           {
             email,
           }

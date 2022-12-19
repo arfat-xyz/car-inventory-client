@@ -29,7 +29,7 @@ const AddItem = () => {
       suplier,
     };
     await axios
-      .post("https://boiling-oasis-56401.herokuapp.com/additem", product)
+      .post("https://car-inventory-server.onrender.com/additem", product)
       .then(function (res) {
         if (res?.data?.insertedId) {
           navigate("/myitem");

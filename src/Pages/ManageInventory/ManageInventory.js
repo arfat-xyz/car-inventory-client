@@ -14,7 +14,7 @@ const ManageInventory = () => {
   useEffect(() => {
     axios
       .get(
-        `https://boiling-oasis-56401.herokuapp.com/products?email=${email}`,
+        `https://car-inventory-server.onrender.com/products?email=${email}`,
         {
           headers: {
             auth: `bearer ${localStorage.getItem("accesstoken")}`,
@@ -28,7 +28,7 @@ const ManageInventory = () => {
     const proceed = window.confirm("Are you Sure You want to delete this");
     if (proceed) {
       await axios
-        .delete(`https://boiling-oasis-56401.herokuapp.com/product/${id}`)
+        .delete(`https://car-inventory-server.onrender.com/product/${id}`)
         .then((res) => {
           if (res.data.deletedCount > 0) {
             const remaining = products.filter((product) => product._id != id);
